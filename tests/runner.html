@@ -8,54 +8,57 @@
 </head>
 <body>
 <div id="mocha"></div>
-<script src="/node_modules/es5-shim/es5-shim.js?nowrap"></script>
-<script src="/node_modules/modulex/build/modulex-debug.js?nowrap"></script>
+<script charset="utf-8" src="/seajs/2.3.0/dist/sea.js?nowrap"></script>
 <script src="/node_modules/node-jscover/lib/front-end/header.js?nowrap"></script>
 <script src="/node_modules/node-jscover/lib/front-end/jscoverage-branch.js?nowrap"></script>
 <link href="/node_modules/mocha/mocha.css?nowrap" type="text/css" rel="stylesheet" charset="utf-8">
 <script src="/node_modules/mocha/mocha.js?nowrap"></script>
 <script src='/node_modules/node-jscover/lib/reporters/mocha/console.js?nowrap'></script>
 <script src='/node_modules/node-jscover-coveralls/lib/reports/mocha.js?nowrap'></script>
-<script src="/node_modules/react/dist/react.js?nowrap"></script>
-<script src="/node_modules/jquery/dist/jquery.js?nowrap"></script>
 <script>
-    (function () {
-        var isCoverage = location.search.indexOf('coverage') !== -1;
-        mocha.setup('bdd');
-        define('react', [], function () {
-            return window.React;
-        });
-        define('jquery', [], function () {
-            return window.jQuery;
-        });
-        require.config('packages', {
-            'simulate-dom-event': {
-                base: '/node_modules/simulate-dom-event',
-                main: 'index'
-            },
-            'expect': {
-                base: '/node_modules/expect.js',
-                main: 'index'
-            },
-            'pager/tests': {
-                base: './'
-            },
-            'pager': {
-                filter: location.href.indexOf('coverage') !== -1 ? 'coverage' : '',
-                base: '../'
+    mocha.setup('bdd');
+
+    seajs.config({
+        base: '/'
+    });
+    
+    var isCoverage = location.search.indexOf('coverage') !== -1;
+
+    seajs.config({
+      map: [function(url) {
+        if (!isCoverage) {
+          return url;
+        }
+        var sources = [''
+          ,'index'
+          ,'lib/Pager'
+        ];
+        var matcher = url.match('http:\/\/(.*?)\/(.*)');
+        var file;
+        if (matcher) {
+          file = matcher[2].replace(/\.js$/, '');
+        } else {
+          return url;
+        }
+        sources = sources.slice(1);
+        for (var i=0; i<sources.length; i++) {
+          if (file === sources[i]) {
+              return url.replace(/\.js$/g, '-coverage.js');
+          }
+        }
+        return url;
+      }]
+    });
+    seajs.use('tests/index-spec', function() {
+        if (window.mochaPhantomJS) {
+            mochaPhantomJS.run();
+            if (isCoverage) {
+                window.nodeJsCoverCoveralls(runner);
             }
-        });
-        require(['pager/tests/index-spec'], function () {
-            if (window.mochaPhantomJS) {
-                var runner = mochaPhantomJS.run();
-                if (isCoverage) {
-                    window.nodeJsCoverCoveralls(runner);
-                }
-            } else {
-                mocha.run();
-            }
-        });
-    })();
+        } else {
+            mocha.run();
+        }
+    });
 </script>
 </body>
 </html>

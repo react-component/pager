@@ -4,7 +4,7 @@ var expect = require('expect.js');
 var Pager = require('../index');
 var React = require('react');
 var $ = require('jquery');
-var simulateDomEvent = require('simulate-dom-event');
+var Simulate = require('event-simulate');
 
 $('<div id="t1"></div>').appendTo('body');
 
@@ -15,7 +15,7 @@ describe('rc-pager', function () {
     );
 
     it('create', function () {
-        simulateDomEvent(document.body, 'click');
+        Simulate.simulate(document.body, 'click');
         expect(1).to.be(1);
     });
 
