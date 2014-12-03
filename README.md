@@ -1,0 +1,4 @@
+pager
+=====
+
+react pager component
