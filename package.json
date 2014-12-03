@@ -24,7 +24,7 @@
     "start": "node --harmony server",
     "publish": "gulp tag",
     "lint": "gulp lint",
-    "test": "node --harmony ./node_modules/mocha/bin/mocha -R list tests/node/specs",
+    "test": "",
     "browser-test": "mocha-phantomjs http://localhost:8000/tests/runner.html",
     "browser-test-cover": "mocha-phantomjs -R node_modules/node-jscover/lib/reporters/mocha/console http://localhost:8000/tests/runner.html?coverage"
   },
@@ -58,5 +58,10 @@
   },
   "precommit": [
     "lint"
-  ]
+  ],
+  "browserify": {
+    "transform": [
+      ["reactify", true]
+    ]
+  }
 }
