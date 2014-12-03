@@ -24,8 +24,8 @@ gulp.task('tag', function (done) {
 
 gulp.task('config', function () {
     var modulexNpm = require('modulex-npm');
-    var config = modulexNpm.generateConfig(['react', 'jquery','simulate-dom-event','expect.js']);
-    require('fs').writeFileSync(path.join(process.cwd(), 'config.js'), 'require.config(' + JSON.stringify(config) + ');');
+    var config = modulexNpm.generateConfig(['react', 'jquery', 'simulate-dom-event', 'expect.js']);
+    require('fs').writeFileSync(path.join(process.cwd(), 'config.js'), 'require.config(' + JSON.stringify(config, null, 4) + ');');
 });
 
 gulp.task('gh-changelog', function (done) {
