@@ -3,17 +3,14 @@
 react pager component
 
 [![NPM version][npm-image]][npm-url]
-[![Bower version][bower-image]][bower-url]
 [![build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![gemnasium deps][gemnasium-image]][gemnasium-url]
 [![node version][node-image]][node-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: http://img.shields.io/npm/v/pager.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/pager
-[bower-image]: http://img.shields.io/bower/v/pager.svg?style=flat-square
-[bower-url]: https://github.com/react-component/pager
+[npm-image]: http://img.shields.io/npm/v/rc-pager.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/rc-pager
 [travis-image]: https://img.shields.io/travis/react-component/pager.svg?style=flat-square
 [travis-url]: https://travis-ci.org/react-component/pager
 [coveralls-image]: https://img.shields.io/coveralls/react-component/pager.svg?style=flat-square
@@ -22,14 +19,12 @@ react pager component
 [gemnasium-url]: https://gemnasium.com/react-component/pager
 [node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
-[download-image]: https://img.shields.io/npm/dm/pager.svg?style=flat-square
-[download-url]: https://npmjs.org/package/pager
-
-[![browser support](https://ci.testling.com/react-component/pager.png)](https://ci.testling.com/react-component/pager)
+[download-image]: https://img.shields.io/npm/dm/rc-pager.svg?style=flat-square
+[download-url]: https://npmjs.org/package/rc-pager
 
 ## install
 
-[![pager](https://nodei.co/npm/pager.png)](https://npmjs.org/package/pager)
+[![rc-pager](https://nodei.co/npm/rc-pager.png)](https://npmjs.org/package/rc-pager)
 
 ## Usage
 
