@@ -9,6 +9,7 @@ before_script:
 - npm install gulp mocha-phantomjs -g
 - phantomjs --version
 script:
+- gulp config
 - npm test
 - npm run-script browser-test
 - npm run-script browser-test-cover
