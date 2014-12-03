@@ -1,22 +1,22 @@
 {
   "name": "rc-pager",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "pager for react",
   "keywords": [
     "react",
     "react-pager"
   ],
-  "homepage": "http://github.com/react-component/rc-pager",
+  "homepage": "http://github.com/react-component/pager",
   "author": "dxq613@gmail.com",
   "maintainers": [
     "yiminghe@gmail.com"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-component/rc-pager.git"
+    "url": "git@github.com:react-component/pager.git"
   },
   "bugs": {
-    "url": "http://github.com/react-component/rc-pager/issues"
+    "url": "http://github.com/react-component/pager/issues"
   },
   "licenses": "MIT",
   "spm": {},
