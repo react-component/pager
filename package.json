@@ -61,7 +61,8 @@
     "lint"
   ],
   "browserify-shim": {
-    "react": "global:React"
+    "react": "global:React",
+    "jquery": "global:jQuery"
   },
   "browserify": {
     "transform": [
