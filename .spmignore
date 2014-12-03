@@ -1,0 +1,12 @@
+dist
+_site
+*.log
+sea-modules
+spm_modules
+node_modules
+.git
+tests
+examples
+test
+.idea
+*.iml

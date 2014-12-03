@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>rc-pager Mocha Runner</title>
+</head>
+<body>
+<div id="mocha"></div>
+<script src="/node_modules/es5-shim/es5-shim.js?nowrap"></script>
+<script src="/node_modules/modulex/build/modulex-debug.js?nowrap"></script>
+<script src="/node_modules/node-jscover/lib/front-end/header.js?nowrap"></script>
+<script src="/node_modules/node-jscover/lib/front-end/jscoverage-branch.js?nowrap"></script>
+<link href="/node_modules/mocha/mocha.css?nowrap" type="text/css" rel="stylesheet" charset="utf-8">
+<script src="/node_modules/mocha/mocha.js?nowrap"></script>
+<script src='/node_modules/node-jscover/lib/reporters/mocha/console.js?nowrap'></script>
+<script src='/node_modules/node-jscover-coveralls/lib/reports/mocha.js?nowrap'></script>
+<script src="/node_modules/react/dist/react.js?nowrap"></script>
+<script src="/node_modules/jquery/dist/jquery.js?nowrap"></script>
+<script>
+    (function () {
+        var isCoverage = location.search.indexOf('coverage') !== -1;
+        mocha.setup('bdd');
+        define('react', [], function () {
+            return window.React;
+        });
+        define('jquery', [], function () {
+            return window.jQuery;
+        });
+        require.config('packages', {
+            'simulate-dom-event': {
+                base: '/node_modules/simulate-dom-event',
+                main: 'index'
+            },
+            'expect': {
+                base: '/node_modules/expect.js',
+                main: 'index'
+            },
+            'pager/tests': {
+                base: './'
+            },
+            'pager': {
+                filter: location.href.indexOf('coverage') !== -1 ? 'coverage' : '',
+                base: '../'
+            }
+        });
+        require(['pager/tests/index-spec'], function () {
+            if (window.mochaPhantomJS) {
+                var runner = mochaPhantomJS.run();
+                if (isCoverage) {
+                    window.nodeJsCoverCoveralls(runner);
+                }
+            } else {
+                mocha.run();
+            }
+        });
+    })();
+</script>
+</body>
+</html>
