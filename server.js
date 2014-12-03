@@ -8,9 +8,12 @@ var modularize = require('koa-modularize');
 var mount = require('koa-mount');
 var jsx = require('koa-jsx');
 var cwd = __dirname;
+var koaBody = require('koa-body');
 var jscoverHandler = require('koa-node-jscover');
 var jscoverCoveralls = require('node-jscover-coveralls/lib/koa');
 
+// parse application/x-www-form-urlencoded
+app.use(koaBody());
 app.use(jscoverHandler({
     onlyLoad: function () {
         return 1;
