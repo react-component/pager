@@ -60,12 +60,19 @@
   "precommit": [
     "lint"
   ],
+  "browserify-shim": {
+    "react": "global:React"
+  },
   "browserify": {
     "transform": [
       [
         "reactify",
-        true
+        "browserify-shim"
       ]
     ]
+  },
+  "dependencies": {
+    "browserify-shim": "^3.8.0",
+    "reactify": "^0.17.1"
   }
 }
