@@ -65,14 +65,12 @@
   },
   "browserify": {
     "transform": [
-      [
-        "reactify",
-        "browserify-shim"
-      ]
+      ["browserify-jsx"],
+      ["browserify-shim"]
     ]
   },
   "dependencies": {
     "browserify-shim": "^3.8.0",
-    "reactify": "^0.17.1"
+    "browserify-jsx": "^0.1.0"
   }
 }
