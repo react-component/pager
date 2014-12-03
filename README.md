@@ -36,6 +36,7 @@ var Pager = require('rc-pager');
 ## Development
 
 ```
+spm install
 npm install
 npm start
 ```
