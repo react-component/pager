@@ -16,27 +16,15 @@
 <script src="/node_modules/mocha/mocha.js?nowrap"></script>
 <script src='/node_modules/node-jscover/lib/reporters/mocha/console.js?nowrap'></script>
 <script src='/node_modules/node-jscover-coveralls/lib/reports/mocha.js?nowrap'></script>
-<script src="/node_modules/react/dist/react.js?nowrap"></script>
-<script src="/node_modules/jquery/dist/jquery.js?nowrap"></script>
+<script src="/config.js?nowrap"></script>
 <script>
     (function () {
+        window.process={
+            env:{}
+        };
         var isCoverage = location.search.indexOf('coverage') !== -1;
         mocha.setup('bdd');
-        define('react', [], function () {
-            return window.React;
-        });
-        define('jquery', [], function () {
-            return window.jQuery;
-        });
         require.config('packages', {
-            'simulate-dom-event': {
-                base: '/node_modules/simulate-dom-event',
-                main: 'index'
-            },
-            'expect': {
-                base: '/node_modules/expect.js',
-                main: 'index'
-            },
             'pager/tests': {
                 base: './'
             },

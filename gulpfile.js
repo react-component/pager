@@ -22,6 +22,11 @@ gulp.task('tag', function (done) {
     cp.exec('git tag ' + version + ' | git push origin ' + version + ':' + version + ' | git push origin master:master', done);
 });
 
+gulp.task('config', function () {
+    var modulexNpm = require('modulex-npm');
+    var config = modulexNpm.generateConfig(['react', 'jquery','simulate-dom-event','expect.js']);
+    require('fs').writeFileSync(path.join(process.cwd(), 'config.js'), 'require.config(' + JSON.stringify(config) + ');');
+});
 
 gulp.task('gh-changelog', function (done) {
     var ghChangeLog = require('gh-changelog');
