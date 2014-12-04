@@ -6,6 +6,28 @@ var build = path.resolve(process.cwd(), 'build');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var jscs = require('gulp-jscs');
+var spm = require('gulp-spm');
+var pipe = require('multipipe');
+
+gulp.task('build', function() {
+  var args = {
+    cwd: __dirname,
+    include: 'standalone',
+    ignore: 'react',
+    stream: {
+      '.js': function jsStream(opt) {
+        return pipe(
+          require('gulp-jsx')(),
+          spm.plugin.js(opt)
+        );
+      }
+    }
+  };
+
+  gulp.src('index.js')
+    .pipe(spm(args))
+    .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('lint', function () {
     return gulp.src('./lib/**/*.js')
