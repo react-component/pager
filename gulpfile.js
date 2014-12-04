@@ -25,7 +25,7 @@ gulp.task('tag', function (done) {
 
 gulp.task('config', function () {
   var modulexNpm = require('modulex-npm');
-  var config = modulexNpm.generateConfig(['react', 'jquery', 'simulate-dom-event', 'expect.js']);
+  var config = modulexNpm.generateConfig(['react', 'jquery', 'simulate-dom-event','sinon', 'expect.js']);
   require('fs').writeFileSync(path.join(process.cwd(), 'config.js'), 'require.config(' + JSON.stringify(config, null, 2) + ');');
 });
 
