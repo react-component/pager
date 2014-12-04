@@ -6,6 +6,7 @@ var build = path.resolve(process.cwd(), 'build');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var jscs = require('gulp-jscs');
+var exec = require('child_process').exec;
 
 gulp.task('lint', function () {
   return gulp.src('./lib/**/*.js')

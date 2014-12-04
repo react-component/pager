@@ -15,38 +15,38 @@ var jscoverCoveralls = require('node-jscover-coveralls/lib/koa');
 // parse application/x-www-form-urlencoded
 app.use(koaBody());
 app.use(jscoverHandler({
-    onlyLoad: function () {
-        return 1;
-    },
-    next: function () {
-        return 1;
-    }
+  onlyLoad: function () {
+    return 1;
+  },
+  next: function () {
+    return 1;
+  }
 }));
 app.use(jsx(root, {
-    reactTools: require('react-tools'),
-    next: function () {
-        return 1;
-    }
+  reactTools: require('react-tools'),
+  next: function () {
+    return 1;
+  }
 }));
 app.use(jscoverHandler({
-    jscover: require('node-jscover'),
-    next: function () {
-        return 1;
-    }
+  jscover: require('node-jscover'),
+  next: function () {
+    return 1;
+  }
 }));
 app.use(mount('/', modularize(root, {
-    nowrap: function () {
-        return this.url.indexOf('nowrap') != -1 || this.url.indexOf('/node_modules/node-jscover/') != -1;
-    }
+  nowrap: function () {
+    return this.url.indexOf('nowrap') != -1 || this.url.indexOf('/node_modules/node-jscover/') != -1;
+  }
 })));
 app.use(jscoverCoveralls());
 app.use(serveIndex(root, {
-    hidden: true,
-    view: 'details'
+  hidden: true,
+  view: 'details'
 }));
 app.use(serve(root, {
-    hidden: true
+  hidden: true
 }));
-
-app.listen(8000);
-console.log('listen at 8000');
+var port = process.env.npm_package_config_port;
+app.listen(port);
+console.log('listen at ' + port);
