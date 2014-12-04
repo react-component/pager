@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <title>rc-pager Mocha Runner</title>
 </head>
 <body>
@@ -17,24 +17,22 @@
 <script src="/node_modules/mocha/mocha.js?nowrap"></script>
 <script src='/node_modules/node-jscover/lib/reporters/mocha/console.js?nowrap'></script>
 <script src='/node_modules/node-jscover-coveralls/lib/reports/mocha.js?nowrap'></script>
-<script src="/config.js?nowrap"></script>
 <script>
     (function () {
-        window.process={
-            env:{}
+        window.process = {
+            env: {}
         };
         var isCoverage = location.search.indexOf('coverage') !== -1;
         mocha.setup('bdd');
-        require.config('packages', {
-            'pager/tests': {
-                base: './'
-            },
-            'pager': {
-                filter: location.href.indexOf('coverage') !== -1 ? 'coverage' : '',
-                base: '../'
-            }
-        });
-        require(['pager/tests/index-spec'], function () {
+        if (location.href.indexOf('coverage') !== -1) {
+            require.config('packages', {
+                '/lib': {
+                    filter: 'coverage',
+                    base: '/lib/'
+                }
+            });
+        }
+        require(['./index-spec'], function () {
             if (window.mochaPhantomJS) {
                 var runner = mochaPhantomJS.run();
                 if (isCoverage) {
