@@ -19,7 +19,11 @@
     "url": "http://github.com/react-component/pager/issues"
   },
   "licenses": "MIT",
-  "spm": {},
+  "spm": {
+    "dependencies": {
+      "react": "~0.12.1"
+    }
+  },
   "config": {
     "port": 8000
   },
