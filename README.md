@@ -29,8 +29,13 @@ react pager component
 ## Usage
 
 ```js
-var pager = require('rc-pager');
-// use pager
+  var Pager = require('rc-pager');
+
+  var pager = React.renderComponent(
+    <Pager total={10} current={5}/>,
+    document.getElementById('p1')
+  );
+// use table
 ```
 
 
