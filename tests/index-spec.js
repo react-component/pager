@@ -7,6 +7,9 @@ var sinon = require('sinon');
 var $ = require('jquery');
 var simulateDomEvent = require('simulate-dom-event');
 
+
+$('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">')
+  .appendTo(document.getElementsByTagName('head')[0]);
 $('<div id="t1"></div>').appendTo('body');
 $('<div id="t2"></div>').appendTo('body');
 $('<div id="t3"></div>').appendTo('body');
