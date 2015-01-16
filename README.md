@@ -29,9 +29,29 @@ react pager component
 ## Usage
 
 ```js
-var Pager = require('rc-pager');
-// use Pager
+  var Pager = require('rc-pager');
+
+  var pager = React.renderComponent(
+    <Pager total={10} current={5}/>,
+    document.getElementById('p1')
+  );
+// use table
 ```
+
+
+## API
+
+#### total `Number`
+  
+  * total page
+
+#### current `Number`
+
+  * current page
+
+#### onSkipTo(page) `Function`
+  
+  * The callback when the page skip
 
 ## Development
 
@@ -40,13 +60,15 @@ npm install
 npm start
 ```
 
+
+
 ## Test Case
 
 http://localhost:8000/tests/runner.html?coverage
 
 ## Coverage
 
-http://localhost:8000/node_modules/node-jscover/lib/front-end/jscoverage.html?w=http://localhost:8000/tests/runner.html?coverage
+http://localhost:8000/node_modules/rc-server/node_modules/node-jscover/lib/front-end/jscoverage.html?w=http://localhost:8000/tests/runner.html?coverage
 
 ## License
 
