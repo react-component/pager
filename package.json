@@ -19,7 +19,12 @@
     "url": "http://github.com/react-component/pager/issues"
   },
   "licenses": "MIT",
-  "spm": {},
+  "spm": {
+    "buildArgs": "--global react:window.React",
+    "dependencies": {
+      "react": "~0.12.1"
+    }
+  },
   "config": {
     "port": 8000
   },
@@ -65,8 +70,7 @@
     "lint"
   ],
   "browserify-shim": {
-    "react": "global:React",
-    "jquery": "global:jQuery"
+    "react": "global:React"
   },
   "browserify": {
     "transform": [
