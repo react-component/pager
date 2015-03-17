@@ -29,15 +29,27 @@ react pager component
 ## Usage
 
 ```js
-  var Pager = require('rc-pager');
-
-  var pager = React.renderComponent(
-    <Pager total={10} current={5}/>,
-    document.getElementById('p1')
-  );
-// use table
+var Pager = require('rc-pager');
+React.renderComponent(
+  <Pager total={10} current={5}/>,
+  document.getElementById('p1')
+);
 ```
 
+## Development
+
+```
+npm install
+npm start
+```
+
+## Example
+
+http://localhost:8000/examples/
+
+online example:
+
+http://react-component.github.io/pager/build/examples/index.html
 
 ## API
 
@@ -52,15 +64,6 @@ react pager component
 #### onSkipTo(page) `Function`
   
   * The callback when the page skip
-
-## Development
-
-```
-npm install
-npm start
-```
-
-
 
 ## Test Case
 

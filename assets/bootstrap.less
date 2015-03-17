@@ -1,0 +1,63 @@
+.rc-pager {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.rc-pager > li {
+  display: inline;
+}
+.rc-pager > li > a,
+.rc-pager > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.rc-pager > li:first-child > a,
+.rc-pager > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.rc-pager > li:last-child > a,
+.rc-pager > li:last-child > span {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.rc-pager > li > a:hover,
+.rc-pager > li > span:hover,
+.rc-pager > li > a:focus,
+.rc-pager > li > span:focus {
+  color: #23527c;
+  background-color: #eee;
+  border-color: #ddd;
+}
+.rc-pager > .rc-pager-item-active > a,
+.rc-pager > .rc-pager-item-active > span,
+.rc-pager > .rc-pager-item-active > a:hover,
+.rc-pager > .rc-pager-item-active > span:hover,
+.rc-pager > .rc-pager-item-active > a:focus,
+.rc-pager > .rc-pager-item-active > span:focus {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+.rc-pager > .rc-pager-item-disabled > span,
+.rc-pager > .rc-pager-item-disabled > span:hover,
+.rc-pager > .rc-pager-item-disabled > span:focus,
+.rc-pager > .rc-pager-item-disabled > a,
+.rc-pager > .rc-pager-item-disabled > a:hover,
+.rc-pager > .rc-pager-item-disabled > a:focus {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ddd;
+}
