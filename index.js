@@ -1,1 +1,3 @@
-module.exports = require('./lib/Pager');
+'use strict';
+
+module.exports = require('./src/');
