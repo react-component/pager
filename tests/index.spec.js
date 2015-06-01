@@ -24,7 +24,7 @@ describe('rc-pager', function () {
   var current = 3;
 
   var pager = React.render(
-    <Pager total={total} current={current}/>,
+    <Pager total={total} current={current} previousLabel="prev" nextLabel="next"/>,
     document.getElementById('t1')
   );
 
@@ -32,6 +32,11 @@ describe('rc-pager', function () {
 
   it('create', function () {
     expect(node.children().length).not.to.be(0);
+  });
+
+  it('previousLabel and nextLabel support', function() {
+    expect(node.find('li:first-child').text()).to.be('prev');
+    expect(node.find('li:last-child').text()).to.be('next');
   });
 
   it('page struct', function () {
