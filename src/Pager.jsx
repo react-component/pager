@@ -53,10 +53,12 @@ class Pager extends React.Component {
   //获取首页按钮
   _getFirstItem() {
     var self = this,
-      current = self.props.current,
-      disabled = current === 0;
+      props = self.props,
+      current = props.current,
+      disabled = current === 0,
+      label = props.previousLabel || '«';
 
-    return <CmdItem disabled={disabled} text="&laquo;" skipTo={this.skipTo} page={current - 1}/>;
+    return <CmdItem disabled={disabled} text={label} skipTo={this.skipTo} page={current - 1}/>;
   }
 
   //获取最后一页按钮
@@ -64,9 +66,10 @@ class Pager extends React.Component {
     var self = this,
       total = self.props.total,
       current = self.props.current,
-      disabled = current === total - 1;
+      disabled = current === total - 1,
+      label = self.props.nextLabel || '»';
 
-    return <CmdItem disabled={disabled} text="&raquo;" skipTo={this.skipTo} page={current + 1}/>;
+    return <CmdItem disabled={disabled} text={label} skipTo={this.skipTo} page={current + 1}/>;
   }
 
   //获取所有数字按钮
