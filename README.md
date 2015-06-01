@@ -61,6 +61,14 @@ http://react-component.github.io/pager/build/examples/index.html
 
   * current page
 
+#### previousLabel `String|Element`
+
+* previous page label, also can be a React Component
+
+#### nextLabel `String|Element`
+
+* next page label, also can be a React Component
+
 #### onSkipTo(page) `Function`
   
   * The callback when the page skip
