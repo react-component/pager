@@ -36,6 +36,7 @@ React.render(
   <div>
     <h1>simple pager</h1>
     <MyControl total={10}/>
+    <MyControl total={1}/>
   </div>,
   document.getElementById('__react-content')
 );

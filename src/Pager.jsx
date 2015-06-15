@@ -90,23 +90,23 @@ class Pager extends React.Component {
       to = current + skip;
     }
     if (from !== 0) {
-      rst.push(<PagerItem text={1} skipTo={this.skipTo} page={0}/>);
+      rst.push(<PagerItem text={1} skipTo={this.skipTo} page={0} key="start"/>);
       if (from > 1) {
-        rst.push(<PagerItem text="..." disabled={true}/>);
+        rst.push(<PagerItem text="..." disabled={true} key="ellipsis-start"/>);
       }
     }
 
     for (var i = from; i <= to; i++) {
       active = current === i;
-      rst.push(<PagerItem text={i + 1} active={active} skipTo={this.skipTo} page={i}/>);
+      rst.push(<PagerItem text={i + 1} active={active} skipTo={this.skipTo} page={i} key={i}/>);
     }
 
     if (to < total - 1) {
       active = current === total - 1;
       if (to < total - 2) {
-        rst.push(<PagerItem text="..." disabled={true}/>);
+        rst.push(<PagerItem text="..." disabled={true} key="ellipsis-end"/>);
       }
-      rst.push(<PagerItem text={total} skipTo={this.skipTo} page={total - 1}/>);
+      rst.push(<PagerItem text={total} skipTo={this.skipTo} page={total - 1} key="end"/>);
     }
     return rst;
   }
@@ -127,6 +127,11 @@ class Pager extends React.Component {
       first = self._getFirstItem(),
       last = self._getLastItem(),
       items = self._getItems();
+
+    // 不需要pager
+    if (this.props.total < 2) {
+      return <ul className={className} />;
+    }
 
     var className = 'rc-pager';
     if (this.props.className) {
