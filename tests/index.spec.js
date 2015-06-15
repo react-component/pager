@@ -18,6 +18,7 @@ $('<div id="t5"></div>').appendTo('body');
 $('<div id="t6"></div>').appendTo('body');
 $('<div id="t7"></div>').appendTo('body');
 $('<div id="t8"></div>').appendTo('body');
+$('<div id="t9"></div>').appendTo('body');
 
 var total = 10;
 describe('rc-pager', function () {
@@ -137,4 +138,18 @@ describe('rc-pager', function () {
       expect(callback.called).to.be(false);
     });
   })
+
+  describe('empty pager', function() {
+    before(function() {
+      var total = 1, current = 1;
+      var pager = React.render(
+        <Pager total={total} current={current}/>,
+        document.getElementById('t9')
+      );
+    });
+
+    it('when total to be 1', function() {
+      expect($('#t9').find('li').length).to.be(0);
+    });
+  });
 });
