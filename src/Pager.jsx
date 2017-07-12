@@ -58,7 +58,7 @@ class Pager extends React.Component {
       disabled = current === 0,
       label = props.previousLabel || '«';
 
-    return <CmdItem disabled={disabled} text={label} skipTo={this.skipTo} page={current - 1}/>;
+    return <CmdItem disabled={disabled} text={label} skipTo={this.skipTo} page={current - 1} />;
   }
 
   //获取最后一页按钮
@@ -66,10 +66,10 @@ class Pager extends React.Component {
     var self = this,
       total = self.props.total,
       current = self.props.current,
-      disabled = current === total - 1,
+      disabled = total === 0 || current === total - 1,
       label = self.props.nextLabel || '»';
 
-    return <CmdItem disabled={disabled} text={label} skipTo={this.skipTo} page={current + 1}/>;
+    return <CmdItem disabled={disabled} text={label} skipTo={this.skipTo} page={current + 1} />;
   }
 
   //获取所有数字按钮
@@ -90,23 +90,23 @@ class Pager extends React.Component {
       to = current + skip;
     }
     if (from !== 0) {
-      rst.push(<PagerItem text={1} skipTo={this.skipTo} page={0}/>);
+      rst.push(<PagerItem text={1} skipTo={this.skipTo} page={0} />);
       if (from > 1) {
-        rst.push(<PagerItem text="..." disabled={true}/>);
+        rst.push(<PagerItem text="..." disabled={true} />);
       }
     }
 
     for (var i = from; i <= to; i++) {
       active = current === i;
-      rst.push(<PagerItem text={i + 1} active={active} skipTo={this.skipTo} page={i}/>);
+      rst.push(<PagerItem text={i + 1} active={active} skipTo={this.skipTo} page={i} key={'item' + i} />);
     }
 
     if (to < total - 1) {
       active = current === total - 1;
       if (to < total - 2) {
-        rst.push(<PagerItem text="..." disabled={true}/>);
+        rst.push(<PagerItem text="..." disabled={true} />);
       }
-      rst.push(<PagerItem text={total} skipTo={this.skipTo} page={total - 1}/>);
+      rst.push(<PagerItem text={total} skipTo={this.skipTo} page={total - 1} />);
     }
     return rst;
   }
